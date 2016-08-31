@@ -3,3 +3,4 @@
 # Whitelist useful files
 !.bash_profile
 !.gitignore
+!.gitconfig
