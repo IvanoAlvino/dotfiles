@@ -1,0 +1,5 @@
+# Ignore everything
+*
+# Whitelist useful files
+!.bash_profile
+!.gitignore
