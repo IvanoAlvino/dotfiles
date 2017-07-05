@@ -1,33 +1,63 @@
-# Colors
-export YELLOW="\e[0;33m"
-export PURPLE="\e[0;35m"
-export LIGHT_BLUE="\e[0;36m"
-export BLUE="\e[0;34m"
-export END_COLOR="\e[m"
+# don't put duplicates lines or lines starting with a space in the history
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=100000
+
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+   xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+   alias ls='ls --color=auto'
+   alias dir='dir --color=auto'
+   alias vdir='vdir --color=auto'
+
+   alias grep='grep --color=auto'
+   alias fgrep='fgrep --color=auto'
+   alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
 # Global variables
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-export PS1="\n$YELLOW\u$END_COLOR[$PURPLE\w$END_COLOR] $LIGHT_BLUE\$(parse_git_branch)$END_COLOR\n$BLUE$ $END_COLOR"
+export PS1="\[\033[38;5;228m\]\u \[\033[38;5;202m\][\w]\[\033[36m\]\$(__git_ps1) \[\033[33m\]> \[\033[0m\]"
 
-# Git branch in prompt.
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-# Alias
-alias ll="ls -alF"
-alias cc="clear"
-alias cd..="cd .."
-
-# Git alias
-alias gs="git status"
-alias gb="git branch"
-alias gd="git diff"
-alias gll='git log --oneline -5'
-alias gl='git log'
-alias gf='git fetch'
-alias gp='git pull'
-
-# Executables
-alias splitup="java -jar /Users/ivano/Executables/SplitUP.jar"
