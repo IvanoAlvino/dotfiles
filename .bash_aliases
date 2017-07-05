@@ -1,0 +1,7 @@
+alias g="git"
+alias gll="git log --pretty=format:\"%C(yellow)%h %C(green)%s%C(cyan) [%cn]\" --decorate -5"
+alias gls="git log --pretty=format:\"%C(yellow)%h %C(green)%s %C(cyan)[%cn]\" --decorate --numstat -5"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias gg="git log --graph --oneline --decorate --all"
