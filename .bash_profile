@@ -38,3 +38,7 @@ export PS1="\[\033[38;5;228m\]\u \[\033[38;5;202m\]\w\[\033[36m\]\$(__git_ps1) \
 
 # Z bash
 . /Users/ia17neb/Software/z-master/z.sh
+
+# Enable ls coloring
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
