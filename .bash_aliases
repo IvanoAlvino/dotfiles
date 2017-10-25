@@ -1,5 +1,5 @@
 # Git aliases
-alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/ (\1)/'"
+#alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/ (\1)/'"
 alias g="git"
 alias gll="git log --pretty=format:\"%C(yellow)%h %C(green)%s%C(cyan) [%cn]\" --decorate -5"
 alias gls="git log --pretty=format:\"%C(yellow)%h %C(green)%s %C(cyan)[%cn]\" --decorate --numstat -5"

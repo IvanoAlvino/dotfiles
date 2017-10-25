@@ -42,3 +42,9 @@ export PS1="\[\033[38;5;228m\]\u \[\033[38;5;202m\]\w\[\033[36m\]\$(__git_ps1) \
 # Enable ls coloring
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Git branch autocompletion
+# Remember to install https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
