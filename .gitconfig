@@ -2,6 +2,7 @@
         br = branch
 	s = status
 	co = checkout
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	publish = "!git push -u origin $(git branch-name)"
 	unstage = reset HEAD
 	diffc = diff --cached
