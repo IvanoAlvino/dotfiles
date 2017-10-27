@@ -1,9 +1,8 @@
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
-[user]
-	name = Ivano Alvino
-	email = ivano.alvino@gmail.com
-[push]
-	default = matching
+[alias]
+        br = branch
+	s = status
+	co = checkout
+	publish = "!git push -u origin $(git branch-name)"
+	unstage = reset HEAD
+	diffc = diff --cached
+	alias = config --get-regexp ^alias\\.
