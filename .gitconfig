@@ -7,3 +7,14 @@
 	unstage = reset HEAD
 	diffc = diff --cached
 	alias = config --get-regexp ^alias\\.
+[user]
+	name = Ivano Alvino
+	email = ivano.alvino@navvis.com
+[push]
+	default = simple
+[pull]
+	ff = only
+[merge]
+	ff = false
+[commit]
+	template = ~/.gitmessage
