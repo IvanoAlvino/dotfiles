@@ -1,6 +1,7 @@
 :set nu
 :syntax on
 :set hlsearch
+:set relativenumber
 
 if exists('g:loaded_sensible') || &compatible
   finish
